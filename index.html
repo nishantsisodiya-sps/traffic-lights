@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic lights</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body onload="timer">
+    
+    <div id="traffic-signal">
+        <div id="green"></div>
+        <div id="yellow"></div>
+        <div id="red"></div>
+    </div>
+    <div id="line1"></div>
+    <div id="line2"></div>
+
+</body>
+<script>
+    function lightchange(){
+    var green = document.getElementById('green')
+    var yellow = document.getElementById('yellow')
+    var red = document.getElementById('red')
+
+    green.style.opacity=1
+    setTimeout(() => {
+        red.style.opacity=.3
+        green.style.opacity=.3
+        yellow.style.opacity=1
+    }, 5000);
+
+
+    setTimeout(() => {
+        red.style.opacity=1
+        green.style.opacity=.3
+        yellow.style.opacity=.3
+    }, 10000);
+
+
+    setTimeout(() => {
+        red.style.opacity=.3
+        green.style.opacity=1
+        yellow.style.opacity=.3
+    }, 15000);
+}
+
+var timer = setInterval (()=>{
+    lightchange();
+}, 15000)
+
+lightchange();
+</script>
+</html>
